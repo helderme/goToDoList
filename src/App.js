@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="nav-bar">HEADER</div>
+      <div className="cards">
+        <div className="card">
+          <input type="checkbox" />
+          <span>Titulo da Tarefa</span>
+        </div>
+        <div className="card">
+          <input type="checkbox" />
+          <span>Titulo da Tarefa</span>
+        </div>
+      </div>
+      <div className="fast-add-bar">
+        <input type="text" placeholder="Type the task here" />
+        <i className="bi bi-plus-circle-fill" />
+      </div>
+    </main>
   );
 }
 
