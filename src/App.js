@@ -1,25 +1,27 @@
 import React from 'react';
 import './App.css';
+import AddTask from './components/AddTask';
+import AppProvider from './context/AppProvider';
 
 function App() {
   return (
-    <main>
-      <div className="nav-bar">HEADER</div>
-      <div className="cards">
-        <div className="card">
-          <input type="checkbox" />
-          <span>Titulo da Tarefa</span>
+    <AppProvider>
+      <main>
+        <div className="nav-bar">HEADER</div>
+        <div className="cards">
+          <div className="card">
+            <input type="checkbox" />
+            <span>Titulo da Tarefa</span>
+          </div>
+          <div className="card">
+            <input type="checkbox" />
+            <span>Titulo da Tarefa</span>
+          </div>
+          <AddTask />
         </div>
-        <div className="card">
-          <input type="checkbox" />
-          <span>Titulo da Tarefa</span>
-        </div>
-      </div>
-      <div className="fast-add-bar">
-        <input type="text" placeholder="Type the task here" />
-        <i className="bi bi-plus-circle-fill" />
-      </div>
-    </main>
+
+      </main>
+    </AppProvider>
   );
 }
 
