@@ -3,6 +3,7 @@ import AppContext from '../context/AppContext';
 
 function TasksCards() {
   const {
+    statusFilter,
     tasksList,
     setTasksList,
   } = useContext(AppContext);
@@ -19,9 +20,18 @@ function TasksCards() {
     setTasksList(updateTasks);
   };
 
+  const filterTask = () => {
+    if (statusFilter === 'all') {
+      return tasksList;
+    }
+    const filtered = tasksList.filter((task) => task.status === statusFilter);
+    return filtered;
+  };
+
   return (
     <div className="cards">
-      {tasksList.map((task) => (
+      {
+      filterTask().map((task) => (
         <div className="card" key={task.id}>
           <button type="button" onClick={() => finishTask(task.id)}>
             <i className="bi bi-check-circle" />
@@ -31,7 +41,8 @@ function TasksCards() {
             <i className="bi bi-trash3-fill" />
           </button>
         </div>
-      ))}
+      ))
+      }
     </div>
   );
 }

@@ -9,6 +9,10 @@ function AppProvider(props) {
   const [tasksList, setTasksList] = useState([]);
   const [lastId, setLastId] = useState(0);
 
+  const [statusFilter, setStatusFilter] = useState('all');
+
+  const numberTasks = (status) => tasksList.filter((task) => task.status === status).length;
+
   const providerValue = useMemo(() => ({
     taskInput,
     setTaskInput,
@@ -16,7 +20,10 @@ function AppProvider(props) {
     setTasksList,
     lastId,
     setLastId,
-  }), [taskInput, tasksList]);
+    statusFilter,
+    setStatusFilter,
+    numberTasks,
+  }), [taskInput, tasksList, statusFilter, lastId]);
 
   return (
     <AppContext.Provider value={providerValue}>
