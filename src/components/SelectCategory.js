@@ -8,7 +8,7 @@ function SelectCategory({ allButton }) {
     setCategoryFilter(event.target.value);
   };
   return (
-    <select onChange={handleCategory} value={categoryFilter}>
+    <select onChange={handleCategory} value={categoryFilter} className="form-select">
       {allButton && <option value="All Tasks">All Tasks</option>}
       {categories.map((category) => <option value={category} key={category}>{category}</option>)}
       <option value="New Category">New Category</option>

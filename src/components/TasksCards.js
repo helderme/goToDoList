@@ -6,6 +6,8 @@ function TasksCards() {
     statusFilter,
     tasksList,
     setTasksList,
+    categoryFilter,
+    setDisplayAddTask,
   } = useContext(AppContext);
 
   const removeTask = (id) => {
@@ -20,12 +22,26 @@ function TasksCards() {
     setTasksList(updateTasks);
   };
 
-  const filterTask = () => {
+  const filterTaskStatus = (list) => {
     if (statusFilter === 'all') {
-      return tasksList;
+      return list;
     }
-    const filtered = tasksList.filter((task) => task.status === statusFilter);
+    const filtered = list.filter((task) => task.status === statusFilter);
     return filtered;
+  };
+
+  const filterTaskCategory = (list) => {
+    if (categoryFilter === 'All Tasks') {
+      return list;
+    }
+    const filtered = list.filter((task) => task.category === categoryFilter);
+    return filtered;
+  };
+
+  const filterTask = () => {
+    const filteredByStatus = filterTaskStatus(tasksList);
+    const filteredByCategory = filterTaskCategory(filteredByStatus);
+    return filteredByCategory;
   };
 
   const status = statusFilter === 'done' ? 'Completed' : 'Pending';
@@ -46,6 +62,10 @@ function TasksCards() {
         </div>
       ))
       }
+      <button type="button" onClick={() => setDisplayAddTask(true)}>
+        <span>Add with Category</span>
+        <i className="bi bi-plus-circle-fill" />
+      </button>
     </div>
   );
 }

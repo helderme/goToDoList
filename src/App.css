@@ -8,11 +8,13 @@ main {
 }
 
 .nav-bar {
+    padding-top: 10px;
     background-color: blue;
     position: fixed;
     top: 0;
     height: 50px;
     width: 100%;
+    display: flex;
 }
 
 .cards {
@@ -38,6 +40,17 @@ main {
 }
 
 .new-category {
+    width: 350px;
+    height: 200px;
+    position: fixed;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 2;
+}
+
+.new-task-screen {
     width: 350px;
     height: 200px;
     position: fixed;
