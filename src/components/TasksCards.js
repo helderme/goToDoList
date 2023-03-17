@@ -28,8 +28,11 @@ function TasksCards() {
     return filtered;
   };
 
+  const status = statusFilter === 'done' ? 'Completed' : 'Pending';
+
   return (
     <div className="cards">
+      <p>{`${status} Tasks`}</p>
       {
       filterTask().map((task) => (
         <div className="card" key={task.id}>

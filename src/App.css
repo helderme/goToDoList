@@ -2,6 +2,9 @@ main {
     text-align: center;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-bar {
@@ -32,4 +35,24 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.new-category {
+    width: 350px;
+    height: 200px;
+    position: fixed;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.display-none {
+    display: none;
+}
+
+.buttons-add-cancel-category {
+    display: flex;
+    justify-content: end;
+    font-size: 50px
 }

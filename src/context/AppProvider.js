@@ -7,9 +7,14 @@ function AppProvider(props) {
 
   const [taskInput, setTaskInput] = useState('teste');
   const [tasksList, setTasksList] = useState([]);
+
   const [lastId, setLastId] = useState(0);
 
-  const [statusFilter, setStatusFilter] = useState('all');
+  const [categories, setCategories] = useState(['All Tasks', 'Default', 'Home', 'Garden']);
+  const [categoryFilter, setCategoryFilter] = useState('All Tasks');
+  const [newCategoryInput, setNewCategoryInput] = useState('');
+
+  const [statusFilter, setStatusFilter] = useState('pending');
 
   const numberTasks = (status) => tasksList.filter((task) => task.status === status).length;
 
@@ -23,7 +28,13 @@ function AppProvider(props) {
     statusFilter,
     setStatusFilter,
     numberTasks,
-  }), [taskInput, tasksList, statusFilter, lastId]);
+    categories,
+    setCategories,
+    categoryFilter,
+    setCategoryFilter,
+    newCategoryInput,
+    setNewCategoryInput,
+  }), [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput]);
 
   return (
     <AppContext.Provider value={providerValue}>
