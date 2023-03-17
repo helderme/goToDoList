@@ -10,7 +10,7 @@ function AppProvider(props) {
 
   const [lastId, setLastId] = useState(0);
 
-  const [categories, setCategories] = useState(['All Tasks', 'Default', 'Home', 'Garden']);
+  const [categories, setCategories] = useState(['Default', 'Home', 'Garden']);
   const [categoryFilter, setCategoryFilter] = useState('All Tasks');
   const [newCategoryInput, setNewCategoryInput] = useState('');
 
