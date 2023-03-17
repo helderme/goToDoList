@@ -11,7 +11,7 @@ function SelectCategory({ allButton }) {
     <select onChange={handleCategory} value={categoryFilter} className="form-select">
       {allButton && <option value="All Tasks">All Tasks</option>}
       {categories.map((category) => <option value={category} key={category}>{category}</option>)}
-      <option value="New Category">New Category</option>
+      <option value="New Category"><button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"> New Category </button></option>
     </select>
   );
 }

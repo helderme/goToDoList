@@ -7,7 +7,6 @@ function TasksCards() {
     tasksList,
     setTasksList,
     categoryFilter,
-    setDisplayAddTask,
   } = useContext(AppContext);
 
   const removeTask = (id) => {
@@ -62,10 +61,6 @@ function TasksCards() {
         </div>
       ))
       }
-      <button type="button" onClick={() => setDisplayAddTask(true)}>
-        <span>Add with Category</span>
-        <i className="bi bi-plus-circle-fill" />
-      </button>
     </div>
   );
 }

@@ -13,17 +13,19 @@ function Header() {
   };
 
   return (
-    <div className="nav-bar">
+    <nav className="navbar navbar-expand navbar-dark bg-dark fixed-top">
       <SelectCategory allButton />
-      <button type="button" onClick={() => handleStatusFilter('pending')}>
-        {numberTasks('pending')}
-        <i className="bi bi-hourglass-split" />
-      </button>
-      <button type="button" onClick={() => handleStatusFilter('done')}>
-        {numberTasks('done')}
-        <i className="bi bi-check-all" />
-      </button>
-    </div>
+      <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button className="btn btn-primary me-md-2" type="button" onClick={() => handleStatusFilter('pending')}>
+          <i className="bi bi-hourglass-split" />
+          {numberTasks('pending')}
+        </button>
+        <button className="btn btn-primary" type="button" onClick={() => handleStatusFilter('done')}>
+          <i className="bi bi-check-all" />
+          {numberTasks('done')}
+        </button>
+      </div>
+    </nav>
   );
 }
 

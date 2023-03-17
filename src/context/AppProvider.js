@@ -16,8 +16,6 @@ function AppProvider(props) {
 
   const [statusFilter, setStatusFilter] = useState('pending');
 
-  const [displayAddTask, setDisplayAddTask] = useState(false);
-
   const numberTasks = (status) => tasksList.filter((task) => task.status === status).length;
 
   const providerValue = useMemo(() => ({
@@ -36,8 +34,6 @@ function AppProvider(props) {
     setCategoryFilter,
     newCategoryInput,
     setNewCategoryInput,
-    displayAddTask,
-    setDisplayAddTask,
   }), [
     taskInput,
     tasksList,
@@ -45,8 +41,7 @@ function AppProvider(props) {
     lastId,
     categories,
     categoryFilter,
-    newCategoryInput,
-    displayAddTask]);
+    newCategoryInput]);
 
   return (
     <AppContext.Provider value={providerValue}>
