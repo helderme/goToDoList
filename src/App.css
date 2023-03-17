@@ -19,7 +19,7 @@ main {
     padding: 50px 0px 50px 0px;
 }
 
-.fast-add-bar {
+.add-task-container {
     background-color: green;
     position: fixed;
     height: 50px;

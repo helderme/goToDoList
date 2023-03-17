@@ -6,13 +6,16 @@ function AppProvider(props) {
   const { children } = props;
 
   const [taskInput, setTaskInput] = useState('teste');
-  const [tasksList, setTasksList] = useState('');
+  const [tasksList, setTasksList] = useState([]);
+  const [lastId, setLastId] = useState(0);
 
   const providerValue = useMemo(() => ({
     taskInput,
     setTaskInput,
     tasksList,
     setTasksList,
+    lastId,
+    setLastId,
   }), [taskInput, tasksList]);
 
   return (
