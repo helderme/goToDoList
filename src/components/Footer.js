@@ -9,18 +9,21 @@ function Footer() {
     setTasksList,
     lastId,
     setLastId,
+    categoryFilter,
   } = useContext(AppContext);
 
   const handleChange = (event) => {
     setTaskInput(event.target.value);
   };
 
-  const addTaskToList = (category) => {
+  const currentCategory = categoryFilter === 'All Categories' ? 'Default' : categoryFilter;
+
+  const addTaskToList = () => {
     const taskToAdd = {
       id: lastId + 1,
       description: taskInput,
       status: 'pending',
-      category,
+      category: currentCategory,
     };
     if (taskInput.length > 1) {
       const newTasks = [...tasksList, taskToAdd];
@@ -34,9 +37,9 @@ function Footer() {
     <footer className="sticky-bottom">
       <div className="navbar bg-dark justify-content-center">
         <div className="col-xs-3">
-          <input type="text" className="form-control" placeholder="Type a default task" value={taskInput} onChange={handleChange} />
+          <input type="text" className="form-control" placeholder={`Type a ${currentCategory} task`} value={taskInput} onChange={handleChange} />
         </div>
-        <button type="button" onClick={() => addTaskToList('Default')} disabled={taskInput < 1} className="btn btn-info">
+        <button type="button" onClick={() => addTaskToList(categoryFilter)} disabled={taskInput < 1} className="btn btn-info">
           <i className="bi bi-check-square-fill" />
         </button>
       </div>

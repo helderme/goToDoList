@@ -7,6 +7,7 @@ function TasksCards() {
     tasksList,
     setTasksList,
     categoryFilter,
+    setCategoryFilter,
   } = useContext(AppContext);
 
   const removeTask = (id) => {
@@ -30,7 +31,7 @@ function TasksCards() {
   };
 
   const filterTaskCategory = (list) => {
-    if (categoryFilter === 'All Tasks') {
+    if (categoryFilter === 'All Categories') {
       return list;
     }
     const filtered = list.filter((task) => task.category === categoryFilter);
@@ -43,13 +44,17 @@ function TasksCards() {
     return filteredByCategory;
   };
 
+  const changeToDefault = () => {
+    if (categoryFilter === 'All Categories') setCategoryFilter('Default');
+  };
+
   const status = statusFilter === 'done' ? 'Completed' : 'Pending';
 
   return (
     <div className="flex-grow-1">
       <div className="container d-flex justify-content-between">
         <span className="fs-5 text-center align-self-center">{`${status} Tasks`}</span>
-        <button type="button" className="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+        <button type="button" className="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#createTaskModal" onClick={changeToDefault}>
           <i className="bi bi-plus-circle-fill" />
           <span> Add Task</span>
         </button>
@@ -64,9 +69,11 @@ function TasksCards() {
               <span className="fs-6">{task.category}</span>
             </div>
             <div className="d-flex flex-column gap-2">
+              {task.status === 'pending' && (
               <button className="btn btn-outline-success" type="button" onClick={() => finishTask(task.id)}>
                 <i className="bi bi-check-circle" />
               </button>
+              )}
               <button className="btn btn-outline-danger" type="button" onClick={() => removeTask(task.id)}>
                 <i className="bi bi-trash3-fill" />
               </button>

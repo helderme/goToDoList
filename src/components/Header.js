@@ -6,10 +6,12 @@ function Header() {
   const {
     setStatusFilter,
     numberTasks,
+    setCategoryFilter,
   } = useContext(AppContext);
 
   const handleStatusFilter = (status) => {
     setStatusFilter(status);
+    setCategoryFilter('All Categories');
   };
 
   return (
@@ -19,7 +21,7 @@ function Header() {
           <i className="bi bi-check2-circle" />
           {/* <span> TO DO LIST</span> */}
         </button>
-        <SelectCategory allButton />
+        <SelectCategory allButton newCategory />
         <div className="gap-3">
           <button className="btn btn-primary mx-2" type="button" onClick={() => handleStatusFilter('pending')}>
             <i className="bi bi-hourglass-split" />
