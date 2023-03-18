@@ -4,15 +4,42 @@ import AppContext from '../context/AppContext';
 
 function SelectCategory({ allButton }) {
   const { categoryFilter, setCategoryFilter, categories } = useContext(AppContext);
-  const handleCategory = (event) => {
-    setCategoryFilter(event.target.value);
-  };
+
   return (
-    <select onChange={handleCategory} value={categoryFilter} className="form-select">
-      {allButton && <option value="All Tasks">All Tasks</option>}
-      {categories.map((category) => <option value={category} key={category}>{category}</option>)}
-      <option value="New Category"><button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"> New Category </button></option>
-    </select>
+    <div className="dropdown d-grid gap-2 col-4 mx-auto">
+      <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {categoryFilter}
+      </button>
+      <ul className="dropdown-menu">
+        {allButton
+          && (
+            <li className="dropdown-item">
+              <button
+                type="button"
+                onClick={() => setCategoryFilter('All Tasks')}
+                className="btn btn-outline-dark"
+              >
+                All Tasks
+              </button>
+            </li>
+          )}
+        {categories.map((category) => (
+          <li className="dropdown-item">
+            <input
+              type="button"
+              onClick={() => setCategoryFilter(category)}
+              value={category}
+              className="btn btn-outline-primary"
+            />
+          </li>
+        ))}
+        <li className="dropdown-item">
+          <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            New Category
+          </button>
+        </li>
+      </ul>
+    </div>
   );
 }
 
