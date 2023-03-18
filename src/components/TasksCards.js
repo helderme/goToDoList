@@ -51,37 +51,49 @@ function TasksCards() {
   const status = statusFilter === 'done' ? 'Completed' : 'Pending';
 
   return (
-    <div className="flex-grow-1">
-      <div className="container d-flex justify-content-between">
-        <span className="fs-5 text-center align-self-center">{`${status} Tasks`}</span>
-        <button type="button" className="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#createTaskModal" onClick={changeToDefault}>
-          <i className="bi bi-plus-circle-fill" />
+    <div className='flex-grow-1'>
+      <div className='container d-flex justify-content-between'>
+        <span className='fs-5 text-center align-self-center'>{`${status} Tasks`}</span>
+        <button
+          type='button'
+          className='btn btn-primary my-2'
+          data-bs-toggle='modal'
+          data-bs-target='#createTaskModal'
+          onClick={changeToDefault}
+        >
+          <i className='bi bi-plus-circle-fill' />
           <span> Add Task</span>
         </button>
       </div>
-      <div className="container">
-        {
-      filterTask().map((task) => (
-        <div className="card mb-2" key={task.id}>
-          <div className="card-body d-flex justify-content-between align-items-center">
-            <div>
-              <p className="fs-3">{task.description}</p>
-              <span className="fs-6">{task.category}</span>
-            </div>
-            <div className="d-flex flex-column gap-2">
-              {task.status === 'pending' && (
-              <button className="btn btn-outline-success" type="button" onClick={() => finishTask(task.id)}>
-                <i className="bi bi-check-circle" />
-              </button>
-              )}
-              <button className="btn btn-outline-danger" type="button" onClick={() => removeTask(task.id)}>
-                <i className="bi bi-trash3-fill" />
-              </button>
+      <div className='container'>
+        {filterTask().map((task) => (
+          <div className='card mb-2' key={task.id}>
+            <div className='card-body d-flex justify-content-between align-items-center'>
+              <div>
+                <p className='fs-3'>{task.description}</p>
+                <span className='fs-6'>{task.category}</span>
+              </div>
+              <div className='d-flex flex-column gap-2'>
+                {task.status === 'pending' && (
+                  <button
+                    className='btn btn-outline-success'
+                    type='button'
+                    onClick={() => finishTask(task.id)}
+                  >
+                    <i className='bi bi-check-circle' />
+                  </button>
+                )}
+                <button
+                  className='btn btn-outline-danger'
+                  type='button'
+                  onClick={() => removeTask(task.id)}
+                >
+                  <i className='bi bi-trash3-fill' />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      ))
-      }
+        ))}
       </div>
     </div>
   );

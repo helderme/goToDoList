@@ -34,13 +34,24 @@ function Footer() {
   };
 
   return (
-    <footer className="sticky-bottom">
-      <div className="navbar bg-dark justify-content-center">
-        <div className="col-xs-3">
-          <input type="text" className="form-control" placeholder={`Type a ${currentCategory} task`} value={taskInput} onChange={handleChange} />
+    <footer className='sticky-bottom'>
+      <div className='navbar bg-dark justify-content-center'>
+        <div className='col-xs-3'>
+          <input
+            type='text'
+            className='form-control'
+            placeholder={`Type a ${currentCategory} task`}
+            value={taskInput}
+            onChange={handleChange}
+          />
         </div>
-        <button type="button" onClick={() => addTaskToList(categoryFilter)} disabled={taskInput < 1} className="btn btn-info">
-          <i className="bi bi-check-square-fill" />
+        <button
+          type='button'
+          onClick={() => addTaskToList(categoryFilter)}
+          disabled={taskInput < 1}
+          className='btn btn-info'
+        >
+          <i className='bi bi-check-square-fill' />
         </button>
       </div>
     </footer>

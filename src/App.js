@@ -11,12 +11,11 @@ function App() {
     <AppProvider>
       <NewCategory />
       <AddTask />
-      <div className="d-flex flex-column justify-content-between vh-100">
+      <div className='d-flex flex-column justify-content-between vh-100'>
         <Header />
         <TasksCards />
         <Footer />
       </div>
-
     </AppProvider>
   );
 }
