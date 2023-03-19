@@ -7,20 +7,19 @@ function AddTask() {
     taskInput,
     setTaskInput,
     newCategoryInput,
-    setNewCategoryInput,
+    handleCategoryInput,
     addCategory,
     showCategoryInput,
     setShowCategoryInput,
-    addTaskToList
+    addTaskToList,
+    categoryAlreadyExists
   } = useContext(AppContext);
 
   const handleChange = (event) => {
     setTaskInput(event.target.value);
   };
 
-  const handleInput = (event) => {
-    setNewCategoryInput(event.target.value);
-  };
+
 
   return (
     <div
@@ -74,16 +73,17 @@ function AddTask() {
                   aria-label='Sizing example input'
                   aria-describedby='inputGroup-sizing-default'
                   value={newCategoryInput}
-                  onChange={handleInput}
+                  onChange={handleCategoryInput}
                 />
                 <button
                   type='button'
                   className='btn btn-primary'
                   onClick={addCategory}
-                  disabled={newCategoryInput.length < 1}
+                  disabled={newCategoryInput.length < 1 || categoryAlreadyExists}
                 >
                   Save Category
                 </button>
+                {categoryAlreadyExists && <span>Category Already Exists</span>}
               </div>
             )}
           </div>

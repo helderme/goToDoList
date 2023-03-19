@@ -5,7 +5,7 @@ import AppContext from './AppContext';
 function AppProvider(props) {
   const { children } = props;
 
-  const [taskInput, setTaskInput] = useState('teste');
+  const [taskInput, setTaskInput] = useState('');
   const [tasksList, setTasksList] = useState([]);
 
   const [lastId, setLastId] = useState(0);
@@ -13,6 +13,7 @@ function AppProvider(props) {
   const [categories, setCategories] = useState(['Default', 'Home', 'Garden']);
   const [categoryFilter, setCategoryFilter] = useState('All Categories');
   const [newCategoryInput, setNewCategoryInput] = useState('');
+  const [categoryAlreadyExists, setCategoryAlreadyExists] = useState(false);
 
   const [statusFilter, setStatusFilter] = useState('pending');
 
@@ -30,6 +31,7 @@ function AppProvider(props) {
   const currentCategory = categoryFilter === 'All Categories' ? 'Default' : categoryFilter;
 
   const addTaskToList = () => {
+
     const taskToAdd = {
       id: lastId + 1,
       description: taskInput,
@@ -42,6 +44,12 @@ function AppProvider(props) {
       setTaskInput('');
       setLastId(taskToAdd.id);
     }
+  };
+
+  const handleCategoryInput = (event) => {
+    const alreadyExists = categories.find((category) => category.toLowerCase() === event.target.value.toLowerCase())
+    setCategoryAlreadyExists(alreadyExists)
+    setNewCategoryInput(event.target.value);
   };
 
   const providerValue = useMemo(
@@ -66,8 +74,10 @@ function AppProvider(props) {
       setShowCategoryInput,
       addTaskToList,
       currentCategory,
+      handleCategoryInput,
+      categoryAlreadyExists
     }),
-    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput, showCategoryInput],
+    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput, showCategoryInput, categoryAlreadyExists],
   );
 
   return (

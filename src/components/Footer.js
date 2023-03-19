@@ -11,6 +11,9 @@ function Footer() {
 
   const handleChange = (event) => {
     setTaskInput(event.target.value);
+    if (event.key === 'Enter') {
+      addTaskToList()
+    }
   };
 
   return (
@@ -23,15 +26,16 @@ function Footer() {
             placeholder={`Type a ${currentCategory} task`}
             value={taskInput}
             onChange={handleChange}
+            onKeyDown={handleChange}
           />
         </div>
         <button
           type='button'
           onClick={addTaskToList}
           disabled={taskInput < 1}
-          className='btn btn-info'
+          className='btn btn-info ms-2'
         >
-          <i className='bi bi-check-square-fill' />
+          <i className='bi bi-check-square-fill fs-5' />
         </button>
       </div>
     </footer>

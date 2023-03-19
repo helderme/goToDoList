@@ -4,13 +4,11 @@ import AppContext from '../context/AppContext';
 function NewCategory() {
   const {
     newCategoryInput,
-    setNewCategoryInput,
-    addCategory
+    handleCategoryInput,
+    addCategory,
+    categoryAlreadyExists,
   } = useContext(AppContext);
 
-  const handleInput = (event) => {
-    setNewCategoryInput(event.target.value);
-  };
 
   return (
     <div
@@ -44,7 +42,7 @@ function NewCategory() {
                 aria-label='Sizing example input'
                 aria-describedby='inputGroup-sizing-default'
                 value={newCategoryInput}
-                onChange={handleInput}
+                onChange={handleCategoryInput}
               />
             </div>
           </div>
@@ -56,10 +54,11 @@ function NewCategory() {
               type='button'
               className='btn btn-primary'
               onClick={addCategory}
-              disabled={newCategoryInput.length < 1}
+              disabled={newCategoryInput.length < 1 || categoryAlreadyExists}
             >
               Save Category
             </button>
+            {categoryAlreadyExists && <p>Category Already Exists</p>}
           </div>
         </div>
       </div>
