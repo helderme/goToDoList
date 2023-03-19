@@ -7,6 +7,7 @@ function AppProvider(props) {
 
   const [taskInput, setTaskInput] = useState('');
   const [tasksList, setTasksList] = useState([]);
+  const [taskToEdit, setTaskToEdit] = useState({});
 
   const [lastId, setLastId] = useState(0);
 
@@ -16,6 +17,7 @@ function AppProvider(props) {
   const [categoryAlreadyExists, setCategoryAlreadyExists] = useState(false);
 
   const [statusFilter, setStatusFilter] = useState('pending');
+  const [previousFilter, setPreviousFilter] = useState('')
 
   const [showCategoryInput, setShowCategoryInput] = useState(false);
 
@@ -75,9 +77,13 @@ function AppProvider(props) {
       addTaskToList,
       currentCategory,
       handleCategoryInput,
-      categoryAlreadyExists
+      categoryAlreadyExists,
+      taskToEdit,
+      setTaskToEdit,
+      previousFilter,
+      setPreviousFilter
     }),
-    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput, showCategoryInput, categoryAlreadyExists],
+    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput, showCategoryInput, categoryAlreadyExists, taskToEdit],
   );
 
   return (

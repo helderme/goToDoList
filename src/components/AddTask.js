@@ -50,7 +50,6 @@ function AddTask() {
               <input
                 type='text'
                 className='form-control'
-                aria-label='Sizing example input'
                 aria-describedby='inputGroup-sizing-default'
                 value={taskInput}
                 onChange={handleChange}
@@ -70,7 +69,6 @@ function AddTask() {
                 <input
                   type='text'
                   className='form-control'
-                  aria-label='Sizing example input'
                   aria-describedby='inputGroup-sizing-default'
                   value={newCategoryInput}
                   onChange={handleCategoryInput}

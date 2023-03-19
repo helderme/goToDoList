@@ -9,6 +9,8 @@ function TasksCards() {
     setTasksList,
     categoryFilter,
     setCategoryFilter,
+    setTaskToEdit,
+    setPreviousFilter
   } = useContext(AppContext);
 
   const removeTask = (id) => {
@@ -16,10 +18,10 @@ function TasksCards() {
     setTasksList(newList);
   };
 
-  const finishTask = (id) => {
-    const taskToFinish = tasksList.find((task) => task.id === id);
-    taskToFinish.status = 'done';
-    const updateTasks = tasksList.map((task) => (task.id === id ? taskToFinish : task));
+  const changeStatusTask = (id, status) => {
+    const taskTochange = tasksList.find((task) => task.id === id);
+    taskTochange.status = status;
+    const updateTasks = tasksList.map((task) => (task.id === id ? taskTochange : task));
     setTasksList(updateTasks);
   };
 
@@ -48,6 +50,11 @@ function TasksCards() {
   const changeToDefault = () => {
     if (categoryFilter === 'All Categories') setCategoryFilter('Default');
   };
+
+  const handleTaskToEdit = (task) => {
+    setPreviousFilter(categoryFilter)
+    setTaskToEdit(task)
+  }
 
   const status = statusFilter === 'done' ? 'Completed' : 'Pending';
 
@@ -88,18 +95,38 @@ function TasksCards() {
                   <button
                     className='btn btn-outline-success'
                     type='button'
-                    onClick={() => finishTask(task.id)}
+                    onClick={() => changeStatusTask(task.id, 'done')}
                   >
                     <i className='bi bi-check-circle' />
                   </button>
                 )}
-                <button
-                  className='btn btn-outline-danger'
-                  type='button'
-                  onClick={() => removeTask(task.id)}
-                >
-                  <i className='bi bi-trash3-fill' />
-                </button>
+                {task.status === 'done' && (
+                  <button
+                    className='btn btn-outline-primary'
+                    type='button'
+                    onClick={() => changeStatusTask(task.id, 'pending')}
+                  >
+                    <i className="bi bi-arrow-counterclockwise" />
+                  </button>
+                )}
+                <div>
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editTaskModal"
+                    onClick={() => handleTaskToEdit(task)}
+                  >
+                    <i className="bi bi-pencil-fill" />
+                  </button>
+                  <button
+                    className='btn btn-outline-danger'
+                    type='button'
+                    onClick={() => removeTask(task.id)}
+                  >
+                    <i className='bi bi-trash3-fill' />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
