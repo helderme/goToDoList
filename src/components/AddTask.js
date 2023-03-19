@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
 import SelectCategory from './SelectCategory';
 
@@ -6,19 +6,13 @@ function AddTask() {
   const {
     taskInput,
     setTaskInput,
-    tasksList,
-    setTasksList,
-    lastId,
-    setLastId,
-    categoryFilter,
     newCategoryInput,
     setNewCategoryInput,
-    setCategories,
-    categories,
-    setCategoryFilter,
+    addCategory,
+    showCategoryInput,
+    setShowCategoryInput,
+    addTaskToList
   } = useContext(AppContext);
-
-  const [showCategoryInput, setShowCategoryInput] = useState(false);
 
   const handleChange = (event) => {
     setTaskInput(event.target.value);
@@ -26,28 +20,6 @@ function AddTask() {
 
   const handleInput = (event) => {
     setNewCategoryInput(event.target.value);
-  };
-
-  const addTaskToList = (category) => {
-    const taskToAdd = {
-      id: lastId + 1,
-      description: taskInput,
-      status: 'pending',
-      category,
-    };
-    if (taskInput.length > 1) {
-      const newTasks = [...tasksList, taskToAdd];
-      setTasksList(newTasks);
-      setTaskInput('');
-      setLastId(taskToAdd.id);
-    }
-  };
-
-  const addCategory = () => {
-    setCategories([...categories, newCategoryInput]);
-    setCategoryFilter(newCategoryInput);
-    setNewCategoryInput('');
-    setShowCategoryInput(false);
   };
 
   return (
@@ -85,7 +57,7 @@ function AddTask() {
                 onChange={handleChange}
               />
             </div>
-            <SelectCategory />
+            <SelectCategory allButton={false} newCategory={false} />
             <button
               type='button'
               className='btn btn-outline-primary mt-4'
@@ -122,7 +94,7 @@ function AddTask() {
             <button
               type='button'
               className='btn btn-primary'
-              onClick={() => addTaskToList(categoryFilter)}
+              onClick={addTaskToList}
               disabled={taskInput < 1}
             >
               Save Task

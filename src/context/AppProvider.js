@@ -16,7 +16,33 @@ function AppProvider(props) {
 
   const [statusFilter, setStatusFilter] = useState('pending');
 
+  const [showCategoryInput, setShowCategoryInput] = useState(false);
+
   const numberTasks = (status) => tasksList.filter((task) => task.status === status).length;
+
+  const addCategory = () => {
+    setCategories([...categories, newCategoryInput]);
+    setCategoryFilter(newCategoryInput);
+    setNewCategoryInput('');
+    setShowCategoryInput(false);
+  };
+
+  const currentCategory = categoryFilter === 'All Categories' ? 'Default' : categoryFilter;
+
+  const addTaskToList = () => {
+    const taskToAdd = {
+      id: lastId + 1,
+      description: taskInput,
+      status: 'pending',
+      category: currentCategory,
+    };
+    if (taskInput.length > 1) {
+      const newTasks = [...tasksList, taskToAdd];
+      setTasksList(newTasks);
+      setTaskInput('');
+      setLastId(taskToAdd.id);
+    }
+  };
 
   const providerValue = useMemo(
     () => ({
@@ -35,8 +61,13 @@ function AppProvider(props) {
       setCategoryFilter,
       newCategoryInput,
       setNewCategoryInput,
+      addCategory,
+      showCategoryInput,
+      setShowCategoryInput,
+      addTaskToList,
+      currentCategory,
     }),
-    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput],
+    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput, showCategoryInput],
   );
 
   return (

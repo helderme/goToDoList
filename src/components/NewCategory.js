@@ -5,19 +5,11 @@ function NewCategory() {
   const {
     newCategoryInput,
     setNewCategoryInput,
-    categories,
-    setCategories,
-    setCategoryFilter,
+    addCategory
   } = useContext(AppContext);
 
   const handleInput = (event) => {
     setNewCategoryInput(event.target.value);
-  };
-
-  const addCategory = () => {
-    setCategories([...categories, newCategoryInput]);
-    setCategoryFilter(newCategoryInput);
-    setNewCategoryInput('');
   };
 
   return (

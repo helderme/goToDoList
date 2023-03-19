@@ -28,7 +28,7 @@ function SelectCategory({ allButton, newCategory }) {
           </li>
         )}
         {categories.map((category) => (
-          <li className='dropdown-item'>
+          <li className='dropdown-item' key={category}>
             <input
               type='button'
               onClick={() => setCategoryFilter(category)}

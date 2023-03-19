@@ -5,32 +5,12 @@ function Footer() {
   const {
     taskInput,
     setTaskInput,
-    tasksList,
-    setTasksList,
-    lastId,
-    setLastId,
-    categoryFilter,
+    addTaskToList,
+    currentCategory
   } = useContext(AppContext);
 
   const handleChange = (event) => {
     setTaskInput(event.target.value);
-  };
-
-  const currentCategory = categoryFilter === 'All Categories' ? 'Default' : categoryFilter;
-
-  const addTaskToList = () => {
-    const taskToAdd = {
-      id: lastId + 1,
-      description: taskInput,
-      status: 'pending',
-      category: currentCategory,
-    };
-    if (taskInput.length > 1) {
-      const newTasks = [...tasksList, taskToAdd];
-      setTasksList(newTasks);
-      setTaskInput('');
-      setLastId(taskToAdd.id);
-    }
   };
 
   return (
@@ -47,7 +27,7 @@ function Footer() {
         </div>
         <button
           type='button'
-          onClick={() => addTaskToList(categoryFilter)}
+          onClick={addTaskToList}
           disabled={taskInput < 1}
           className='btn btn-info'
         >
