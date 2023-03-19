@@ -1,9 +1,10 @@
 import React, { useContext } from "react"
 import AppContext from "../context/AppContext";
+import NewCategoryInput from './NewCategoryInput';
 import SelectCategory from "./SelectCategory";
 
 function EditTaskModal() {
-    const { taskToEdit, setTaskToEdit, tasksList, setTasksList, previousFilter, setCategoryFilter, currentCategory } = useContext(AppContext)
+    const { taskToEdit, setTaskToEdit, tasksList, setTasksList, previousFilter, setCategoryFilter, currentCategory, showCategoryInput, setShowCategoryInput } = useContext(AppContext)
 
     const handleDescription = (event) => {
         const editedDescripiton = { ...taskToEdit }
@@ -21,7 +22,13 @@ function EditTaskModal() {
     }
 
     return (
-        <div className='modal' tabIndex='-1' aria-labelledby="editTaskModal" aria-hidden="true" id="editTaskModal">
+        <div
+            className='modal'
+            tabIndex='-1'
+            aria-labelledby='editTaskModal'
+            aria-hidden='true'
+            id='editTaskModal'
+        >
             <div className='modal-dialog'>
                 <div className='modal-content'>
                     <div className='modal-header'>
@@ -47,12 +54,26 @@ function EditTaskModal() {
                             />
                         </div>
                         <SelectCategory allButton={false} newCategory={false} />
+                        <button
+                            type='button'
+                            className='btn btn-outline-primary mt-4'
+                            onClick={() => setShowCategoryInput(!showCategoryInput)}
+                        >
+                            <i className='bi bi-folder-plus' />
+                            <span> New category</span>
+                        </button>
+                        {showCategoryInput && <NewCategoryInput />}
                     </div>
                     <div className='modal-footer'>
                         <button type='button' className='btn btn-secondary' data-bs-dismiss='modal'>
                             Close
                         </button>
-                        <button type='button' className='btn btn-primary' onClick={saveEditedTask} data-bs-dismiss='modal'>
+                        <button
+                            type='button'
+                            className='btn btn-primary'
+                            onClick={saveEditedTask}
+                            data-bs-dismiss='modal'
+                        >
                             Save changes
                         </button>
                     </div>

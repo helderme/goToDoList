@@ -1,19 +1,11 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
+import NewCategoryInput from './NewCategoryInput';
 import SelectCategory from './SelectCategory';
 
 function AddTask() {
-  const {
-    taskInput,
-    setTaskInput,
-    newCategoryInput,
-    handleCategoryInput,
-    addCategory,
-    showCategoryInput,
-    setShowCategoryInput,
-    addTaskToList,
-    categoryAlreadyExists
-  } = useContext(AppContext);
+  const { taskInput, setTaskInput, showCategoryInput, setShowCategoryInput, addTaskToList } =
+    useContext(AppContext);
 
   const handleChange = (event) => {
     setTaskInput(event.target.value);
@@ -62,26 +54,7 @@ function AddTask() {
               <i className='bi bi-folder-plus' />
               <span> New category</span>
             </button>
-            {showCategoryInput && (
-              <div className='input-group mb-3'>
-                <input
-                  type='text'
-                  className='form-control'
-                  aria-describedby='inputGroup-sizing-default'
-                  value={newCategoryInput}
-                  onChange={handleCategoryInput}
-                />
-                <button
-                  type='button'
-                  className='btn btn-primary'
-                  onClick={addCategory}
-                  disabled={newCategoryInput.length < 1 || categoryAlreadyExists}
-                >
-                  Save Category
-                </button>
-                {categoryAlreadyExists && <span>Category Already Exists</span>}
-              </div>
-            )}
+            {showCategoryInput && <NewCategoryInput />}
           </div>
           <div className='modal-footer'>
             <button type='button' className='btn btn-secondary' data-bs-dismiss='modal'>
