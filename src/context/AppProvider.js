@@ -9,12 +9,14 @@ function AppProvider(props) {
   const [tasksList, setTasksList] = useState([]);
   const [taskToEdit, setTaskToEdit] = useState({});
 
+
   const [lastId, setLastId] = useState(0);
 
   const [categories, setCategories] = useState(['Default', 'Home', 'Garden']);
   const [categoryFilter, setCategoryFilter] = useState('All Categories');
   const [newCategoryInput, setNewCategoryInput] = useState('');
   const [categoryAlreadyExists, setCategoryAlreadyExists] = useState(false);
+  const [categoryToDelete, setCategoryToDelete] = useState();
 
   const [statusFilter, setStatusFilter] = useState('pending');
   const [previousFilter, setPreviousFilter] = useState('')
@@ -33,7 +35,6 @@ function AppProvider(props) {
   const currentCategory = categoryFilter === 'All Categories' ? 'Default' : categoryFilter;
 
   const addTaskToList = () => {
-
     const taskToAdd = {
       id: lastId + 1,
       description: taskInput,
@@ -81,9 +82,11 @@ function AppProvider(props) {
       taskToEdit,
       setTaskToEdit,
       previousFilter,
-      setPreviousFilter
+      setPreviousFilter,
+      categoryToDelete,
+      setCategoryToDelete
     }),
-    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput, showCategoryInput, categoryAlreadyExists, taskToEdit],
+    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput, showCategoryInput, categoryAlreadyExists, taskToEdit, categoryToDelete],
   );
 
   return (

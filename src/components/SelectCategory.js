@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import AppContext from '../context/AppContext';
 
 function SelectCategory({ allButton, newCategory }) {
-  const { categoryFilter, setCategoryFilter, categories } = useContext(AppContext);
+  const { categoryFilter, setCategoryFilter, categories, setCategoryToDelete } = useContext(AppContext);
 
   return (
     <div className='dropdown d-grid gap-2 col-4'>
@@ -35,6 +35,19 @@ function SelectCategory({ allButton, newCategory }) {
               value={category}
               className='btn btn-outline-primary'
             />
+            {(allButton && category !== 'Default') && (
+              <button
+                className='btn btn-light'
+                type='button'
+                data-bs-toggle="modal"
+                data-bs-target="#deleteCategoryModal"
+                data-target="#deleteCategoryModal"
+                onClick={() => { setCategoryToDelete(category) }}
+              >
+                <i className='bi bi-trash3-fill' />
+              </button>
+            )}
+
           </li>
         ))}
         {newCategory && (

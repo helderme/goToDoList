@@ -1,5 +1,6 @@
 import React from 'react';
 import AddTask from './components/AddTask';
+import DeleteCategory from './components/DeleteCategory';
 import EditTaskModal from './components/EditTaskModal';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -13,6 +14,7 @@ function App() {
       <NewCategory />
       <AddTask />
       <EditTaskModal />
+      <DeleteCategory />
       <div className='d-flex flex-column justify-content-between vh-100'>
         <Header />
         <TasksCards />

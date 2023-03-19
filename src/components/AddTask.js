@@ -19,8 +19,6 @@ function AddTask() {
     setTaskInput(event.target.value);
   };
 
-
-
   return (
     <div
       className='modal fade'
@@ -92,6 +90,7 @@ function AddTask() {
             <button
               type='button'
               className='btn btn-primary'
+              data-bs-dismiss='modal'
               onClick={addTaskToList}
               disabled={taskInput < 1}
             >
