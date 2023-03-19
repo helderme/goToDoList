@@ -1,18 +1,21 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from './AppContext';
+import { setLocalStorage, getLocalStorage } from '../utils/localStorage';
 
 function AppProvider(props) {
   const { children } = props;
 
+  const localStorage = getLocalStorage()
+
   const [taskInput, setTaskInput] = useState('');
-  const [tasksList, setTasksList] = useState([]);
+  const [tasksList, setTasksList] = useState(localStorage.tasksList);
   const [taskToEdit, setTaskToEdit] = useState({});
 
 
-  const [lastId, setLastId] = useState(0);
+  const [lastId, setLastId] = useState(localStorage.lastId);
 
-  const [categories, setCategories] = useState(['Default', 'Home', 'Garden']);
+  const [categories, setCategories] = useState(localStorage.categories);
   const [categoryFilter, setCategoryFilter] = useState('All Categories');
   const [newCategoryInput, setNewCategoryInput] = useState('');
   const [categoryAlreadyExists, setCategoryAlreadyExists] = useState(false);
@@ -54,6 +57,12 @@ function AppProvider(props) {
     setCategoryAlreadyExists(alreadyExists)
     setNewCategoryInput(event.target.value);
   };
+
+
+
+  useEffect(() => {
+    setLocalStorage({ categories, lastId, tasksList })
+  }, [categories, lastId, tasksList]);
 
   const providerValue = useMemo(
     () => ({
