@@ -3,7 +3,7 @@ import AppContext from "../context/AppContext";
 import SelectCategory from "./SelectCategory";
 
 function EditTaskModal() {
-    const { taskToEdit, setTaskToEdit, tasksList, setTasksList, previousFilter, setCategoryFilter, categoryFilter } = useContext(AppContext)
+    const { taskToEdit, setTaskToEdit, tasksList, setTasksList, previousFilter, setCategoryFilter, currentCategory } = useContext(AppContext)
 
     const handleDescription = (event) => {
         const editedDescripiton = { ...taskToEdit }
@@ -13,13 +13,12 @@ function EditTaskModal() {
 
     const saveEditedTask = () => {
         const editedTask = { ...taskToEdit }
-        editedTask.category = categoryFilter;
+        editedTask.category = currentCategory;
         const newList = tasksList.map((task) => task.id === editedTask.id ? editedTask : task)
         setTasksList(newList)
         setCategoryFilter(previousFilter)
         setTaskToEdit({})
     }
-
 
     return (
         <div className='modal' tabIndex='-1' aria-labelledby="editTaskModal" aria-hidden="true" id="editTaskModal">

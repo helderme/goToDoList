@@ -53,6 +53,7 @@ function TasksCards() {
 
   const handleTaskToEdit = (task) => {
     setPreviousFilter(categoryFilter)
+    changeToDefault()
     setTaskToEdit(task)
   }
 
