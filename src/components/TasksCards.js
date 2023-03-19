@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
+import logo from '../go.svg'
 
 function TasksCards() {
   const {
@@ -65,7 +66,16 @@ function TasksCards() {
           <span> Add Task</span>
         </button>
       </div>
-      <div className='container'>
+      <div className="container d-flex justify-content-center">
+        {filterTask().length === 0 &&
+          <div className="d-flex flex-column">
+            <span className="fs-3 text-center mb-4">No tasks in {categoryFilter}</span>
+            <img src={logo} alt="logo" className="w-100 m-auto" />
+          </div>
+
+        }
+      </div>
+      <div className="container">
         {filterTask().map((task) => (
           <div className='card mb-2' key={task.id}>
             <div className='card-body d-flex justify-content-between align-items-center'>
