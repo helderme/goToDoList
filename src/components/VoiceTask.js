@@ -12,12 +12,13 @@ function VoiceTask() {
   }
 
   useEffect(() => {
+    setTaskInput(transcript)
+  }, [transcript]) 
+
+  useEffect(() => {
     resetTranscript()
   }, [tasksList])
 
-  useEffect(() => {
-    setTaskInput(transcript)
-  }, [transcript])
 
   if(listening) {
     return (

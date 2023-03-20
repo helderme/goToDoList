@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import AppContext from "../context/AppContext";
 import NewCategoryInput from './NewCategoryInput';
 import SelectCategory from "./SelectCategory";
-import VoiceTask from "./VoiceTask";
 
 function EditTaskModal() {
   const { taskToEdit, setTaskToEdit, tasksList, setTasksList, previousFilter, setCategoryFilter, currentCategory, showCategoryInput, setShowCategoryInput } = useContext(AppContext)
@@ -53,7 +52,6 @@ function EditTaskModal() {
                 value={taskToEdit.description}
                 onChange={handleDescription}
               />
-              <VoiceTask />
             </div>
             <SelectCategory allButton={false} newCategory={false} />
             <button
