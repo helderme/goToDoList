@@ -43,6 +43,7 @@ function AddTask() {
                 aria-describedby='inputGroup-sizing-default'
                 value={taskInput}
                 onChange={handleChange}
+                maxLength="100"
               />
             </div>
             <SelectCategory allButton={false} newCategory={false} />

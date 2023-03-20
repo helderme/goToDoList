@@ -38,6 +38,7 @@ function NewCategory() {
               </span>
               <input
                 type='text'
+                maxLength="20"
                 className='form-control'
                 aria-label='Sizing example input'
                 aria-describedby='inputGroup-sizing-default'
@@ -53,6 +54,7 @@ function NewCategory() {
             <button
               type='button'
               className='btn btn-primary'
+              data-bs-dismiss='modal'
               onClick={addCategory}
               disabled={newCategoryInput.length < 1 || categoryAlreadyExists}
             >

@@ -17,6 +17,7 @@ function NewCategoryInput() {
                 aria-describedby='inputGroup-sizing-default'
                 value={newCategoryInput}
                 onChange={handleCategoryInput}
+                maxLength="20"
             />
             <button
                 type='button'

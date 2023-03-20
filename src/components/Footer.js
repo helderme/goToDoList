@@ -27,6 +27,7 @@ function Footer() {
             value={taskInput}
             onChange={handleChange}
             onKeyDown={handleChange}
+            maxLength="100"
           />
         </div>
         <button
