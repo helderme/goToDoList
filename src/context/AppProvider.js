@@ -49,6 +49,7 @@ function AppProvider(props) {
       setTasksList(newTasks);
       setTaskInput('');
       setLastId(taskToAdd.id);
+      setStatusFilter('pending')
     }
   };
 
