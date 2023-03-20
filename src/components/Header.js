@@ -19,6 +19,7 @@ function Header() {
       <nav className='container'>
         <button type='button' className='btn btn-dark btn-lg'>
           <i className='bi bi-check2-circle' />
+          <span className='d-none d-md-inline'>TO DO LIST</span>
         </button>
         <SelectCategory allButton newCategory />
         <div className='gap-3'>

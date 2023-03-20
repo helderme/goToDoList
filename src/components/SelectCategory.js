@@ -6,7 +6,7 @@ function SelectCategory({ allButton, newCategory }) {
   const { categoryFilter, setCategoryFilter, categories, setCategoryToDelete } = useContext(AppContext);
 
   return (
-    <div className='dropdown d-grid gap-2 col-4'>
+    <div className='dropdown d-grid gap-2 col-6'>
       <button
         className='btn btn-secondary dropdown-toggle'
         type='button'

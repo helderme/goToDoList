@@ -62,7 +62,7 @@ function TasksCards() {
   return (
     <div className='flex-grow-1'>
       <div className='container d-flex justify-content-between'>
-        <span className='fs-5 text-center align-self-center'>{`${status} Tasks`}</span>
+        <span className={`fs-5 text-center align-self-center text-${statusFilter === 'done' ? 'success' : 'primary'}`}>{`${status} Tasks`}</span>
         <button
           type='button'
           className='btn btn-primary my-2'
@@ -86,12 +86,12 @@ function TasksCards() {
       <div className="container">
         {filterTask().map((task) => (
           <div className='card mb-2' key={task.id}>
-            <div className='card-body d-flex justify-content-between align-items-center'>
+            <div className='card-body d-flex justify-content-between align-items-start'>
               <div>
-                <p className='fs-3'>{task.description}</p>
+                <p className={`fs-3 text-break text-${statusFilter === 'done' ? 'success' : 'primary'}`}>{task.description}</p>
                 <span className='fs-6'>{task.category}</span>
               </div>
-              <div className='d-flex flex-column gap-2'>
+              <div className='d-flex align-items-end flex-column gap-1 ms-3'>
                 {task.status === 'pending' && (
                   <button
                     className='btn btn-outline-success'
@@ -110,24 +110,22 @@ function TasksCards() {
                     <i className="bi bi-arrow-counterclockwise" />
                   </button>
                 )}
-                <div>
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#editTaskModal"
-                    onClick={() => handleTaskToEdit(task)}
-                  >
-                    <i className="bi bi-pencil-fill" />
-                  </button>
-                  <button
-                    className='btn btn-outline-danger'
-                    type='button'
-                    onClick={() => removeTask(task.id)}
-                  >
-                    <i className='bi bi-trash3-fill' />
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editTaskModal"
+                  onClick={() => handleTaskToEdit(task)}
+                >
+                  <i className="bi bi-pencil-fill" />
+                </button>
+                <button
+                  className='btn btn-outline-danger'
+                  type='button'
+                  onClick={() => removeTask(task.id)}
+                >
+                  <i className='bi bi-trash3-fill' />
+                </button>
               </div>
             </div>
           </div>
