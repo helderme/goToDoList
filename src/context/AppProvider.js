@@ -25,6 +25,8 @@ function AppProvider(props) {
 
   const [showCategoryInput, setShowCategoryInput] = useState(false);
 
+  const [voiceSupport, setVoiceSupport] = useState(false)
+
   const numberTasks = (status) => tasksList.filter((task) => task.status === status).length;
 
   const addCategory = () => {
@@ -94,6 +96,8 @@ function AppProvider(props) {
       setPreviousFilter,
       categoryToDelete,
       setCategoryToDelete,
+      voiceSupport,
+      setVoiceSupport,
     }),
     [
       taskInput,
@@ -107,6 +111,7 @@ function AppProvider(props) {
       categoryAlreadyExists,
       taskToEdit,
       categoryToDelete,
+      voiceSupport,
     ],
   );
 

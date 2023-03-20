@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
+import VoiceTask from './VoiceTask';
 
 function Footer() {
   const { taskInput, setTaskInput, addTaskToList, currentCategory } = useContext(AppContext);
@@ -12,18 +13,21 @@ function Footer() {
   };
 
   return (
-    <footer className='sticky-bottom'>
+    <footer>
       <div className='navbar bg-dark justify-content-center'>
-        <div className='col-xs-3'>
-          <input
-            type='text'
-            className='form-control'
-            placeholder={`Type a ${currentCategory} task`}
-            value={taskInput}
-            onChange={handleChange}
-            onKeyDown={handleChange}
-            maxLength='100'
-          />
+        <div className='align-items-center'>
+          <div className="input-group">
+            <input
+              type='text'
+              className='form-control'
+              placeholder={`Type a ${currentCategory} task`}
+              value={taskInput}
+              onChange={handleChange}
+              onKeyDown={handleChange}
+              maxLength='100'
+            />
+            <VoiceTask />
+          </div>
         </div>
         <button
           type='button'

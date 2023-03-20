@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
 import NewCategoryInput from './NewCategoryInput';
 import SelectCategory from './SelectCategory';
+import VoiceTask from './VoiceTask';
 
 function AddTask() {
   const { taskInput, setTaskInput, showCategoryInput, setShowCategoryInput, addTaskToList } =
@@ -45,6 +46,7 @@ function AddTask() {
                 onChange={handleChange}
                 maxLength='100'
               />
+              <VoiceTask />
             </div>
             <SelectCategory allButton={false} newCategory={false} />
             <button
