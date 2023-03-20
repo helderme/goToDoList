@@ -11,7 +11,8 @@
     "logo",
     "categories",
     "local storage",
-    "html"
+    "html",
+    "voice"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

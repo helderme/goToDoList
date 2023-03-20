@@ -13,7 +13,7 @@ function Footer() {
   };
 
   return (
-    <footer>
+    <footer className='sticky-bottom'>
       <div className='navbar bg-dark justify-content-center'>
         <div className='align-items-center'>
           <div className="input-group">
