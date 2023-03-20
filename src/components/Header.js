@@ -18,7 +18,7 @@ function Header() {
     <header className='navbar bg-dark'>
       <nav className='container'>
         <button type='button' className='btn btn-dark btn-lg'>
-          <i className='bi bi-check2-circle' />
+          <i className='bi bi-check2-circle text-success' />
           <span className='d-none d-md-inline'>TO DO LIST</span>
         </button>
         <SelectCategory allButton newCategory />

@@ -6,12 +6,11 @@ import { setLocalStorage, getLocalStorage } from '../utils/localStorage';
 function AppProvider(props) {
   const { children } = props;
 
-  const localStorage = getLocalStorage()
+  const localStorage = getLocalStorage();
 
   const [taskInput, setTaskInput] = useState('');
   const [tasksList, setTasksList] = useState(localStorage.tasksList);
   const [taskToEdit, setTaskToEdit] = useState({});
-
 
   const [lastId, setLastId] = useState(localStorage.lastId);
 
@@ -22,7 +21,7 @@ function AppProvider(props) {
   const [categoryToDelete, setCategoryToDelete] = useState();
 
   const [statusFilter, setStatusFilter] = useState('pending');
-  const [previousFilter, setPreviousFilter] = useState('')
+  const [previousFilter, setPreviousFilter] = useState('');
 
   const [showCategoryInput, setShowCategoryInput] = useState(false);
 
@@ -49,20 +48,20 @@ function AppProvider(props) {
       setTasksList(newTasks);
       setTaskInput('');
       setLastId(taskToAdd.id);
-      setStatusFilter('pending')
+      setStatusFilter('pending');
     }
   };
 
   const handleCategoryInput = (event) => {
-    const alreadyExists = categories.find((category) => category.toLowerCase() === event.target.value.toLowerCase())
-    setCategoryAlreadyExists(alreadyExists)
+    const alreadyExists = categories.find(
+      (category) => category.toLowerCase() === event.target.value.toLowerCase(),
+    );
+    setCategoryAlreadyExists(alreadyExists);
     setNewCategoryInput(event.target.value);
   };
 
-
-
   useEffect(() => {
-    setLocalStorage({ categories, lastId, tasksList })
+    setLocalStorage({ categories, lastId, tasksList });
   }, [categories, lastId, tasksList]);
 
   const providerValue = useMemo(
@@ -94,16 +93,24 @@ function AppProvider(props) {
       previousFilter,
       setPreviousFilter,
       categoryToDelete,
-      setCategoryToDelete
+      setCategoryToDelete,
     }),
-    [taskInput, tasksList, statusFilter, lastId, categories, categoryFilter, newCategoryInput, showCategoryInput, categoryAlreadyExists, taskToEdit, categoryToDelete],
+    [
+      taskInput,
+      tasksList,
+      statusFilter,
+      lastId,
+      categories,
+      categoryFilter,
+      newCategoryInput,
+      showCategoryInput,
+      categoryAlreadyExists,
+      taskToEdit,
+      categoryToDelete,
+    ],
   );
 
-  return (
-    <AppContext.Provider value={providerValue}>
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={providerValue}>{children}</AppContext.Provider>;
 }
 
 AppProvider.propTypes = {

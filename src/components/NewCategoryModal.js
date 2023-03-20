@@ -2,13 +2,8 @@ import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
 
 function NewCategory() {
-  const {
-    newCategoryInput,
-    handleCategoryInput,
-    addCategory,
-    categoryAlreadyExists,
-  } = useContext(AppContext);
-
+  const { newCategoryInput, handleCategoryInput, addCategory, categoryAlreadyExists } =
+    useContext(AppContext);
 
   return (
     <div
@@ -38,7 +33,7 @@ function NewCategory() {
               </span>
               <input
                 type='text'
-                maxLength="20"
+                maxLength='20'
                 className='form-control'
                 aria-label='Sizing example input'
                 aria-describedby='inputGroup-sizing-default'

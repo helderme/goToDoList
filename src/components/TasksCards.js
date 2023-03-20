@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
-import logo from '../go.svg'
+import logo from '../go.svg';
 
 function TasksCards() {
   const {
@@ -10,7 +10,7 @@ function TasksCards() {
     categoryFilter,
     setCategoryFilter,
     setTaskToEdit,
-    setPreviousFilter
+    setPreviousFilter,
   } = useContext(AppContext);
 
   const removeTask = (id) => {
@@ -52,17 +52,21 @@ function TasksCards() {
   };
 
   const handleTaskToEdit = (task) => {
-    setPreviousFilter(categoryFilter)
-    changeToDefault()
-    setTaskToEdit(task)
-  }
+    setPreviousFilter(categoryFilter);
+    changeToDefault();
+    setTaskToEdit(task);
+  };
 
   const status = statusFilter === 'done' ? 'Completed' : 'Pending';
 
   return (
     <div className='flex-grow-1'>
       <div className='container d-flex justify-content-between'>
-        <span className={`fs-5 text-center align-self-center text-${statusFilter === 'done' ? 'success' : 'primary'}`}>{`${status} Tasks`}</span>
+        <span
+          className={`fs-5 text-center align-self-center text-${
+            statusFilter === 'done' ? 'success' : 'primary'
+          }`}
+        >{`${status} Tasks`}</span>
         <button
           type='button'
           className='btn btn-primary my-2'
@@ -74,21 +78,26 @@ function TasksCards() {
           <span> Add Task</span>
         </button>
       </div>
-      <div className="container d-flex justify-content-center">
-        {filterTask().length === 0 &&
-          <div className="d-flex flex-column">
-            <span className="fs-3 text-center mb-4">No tasks in {categoryFilter}</span>
-            <img src={logo} alt="logo" className="w-100 m-auto" />
+      <div className='container d-flex justify-content-center'>
+        {filterTask().length === 0 && (
+          <div className='d-flex flex-column'>
+            <span className='fs-3 text-center mb-4'>No tasks in {categoryFilter}</span>
+            <img src={logo} alt='logo' className='w-100 m-auto' />
           </div>
-
-        }
+        )}
       </div>
-      <div className="container">
+      <div className='container'>
         {filterTask().map((task) => (
           <div className='card mb-2' key={task.id}>
             <div className='card-body d-flex justify-content-between align-items-start'>
               <div>
-                <p className={`fs-3 text-break text-${statusFilter === 'done' ? 'success' : 'primary'}`}>{task.description}</p>
+                <p
+                  className={`fs-3 text-break text-${
+                    statusFilter === 'done' ? 'success' : 'primary'
+                  }`}
+                >
+                  {task.description}
+                </p>
                 <span className='fs-6'>{task.category}</span>
               </div>
               <div className='d-flex align-items-end flex-column gap-1 ms-3'>
@@ -107,17 +116,17 @@ function TasksCards() {
                     type='button'
                     onClick={() => changeStatusTask(task.id, 'pending')}
                   >
-                    <i className="bi bi-arrow-counterclockwise" />
+                    <i className='bi bi-arrow-counterclockwise' />
                   </button>
                 )}
                 <button
-                  type="button"
-                  className="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#editTaskModal"
+                  type='button'
+                  className='btn btn-outline-primary'
+                  data-bs-toggle='modal'
+                  data-bs-target='#editTaskModal'
                   onClick={() => handleTaskToEdit(task)}
                 >
-                  <i className="bi bi-pencil-fill" />
+                  <i className='bi bi-pencil-fill' />
                 </button>
                 <button
                   className='btn btn-outline-danger'

@@ -2,17 +2,12 @@ import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
 
 function Footer() {
-  const {
-    taskInput,
-    setTaskInput,
-    addTaskToList,
-    currentCategory
-  } = useContext(AppContext);
+  const { taskInput, setTaskInput, addTaskToList, currentCategory } = useContext(AppContext);
 
   const handleChange = (event) => {
     setTaskInput(event.target.value);
     if (event.key === 'Enter') {
-      addTaskToList()
+      addTaskToList();
     }
   };
 
@@ -27,7 +22,7 @@ function Footer() {
             value={taskInput}
             onChange={handleChange}
             onKeyDown={handleChange}
-            maxLength="100"
+            maxLength='100'
           />
         </div>
         <button
