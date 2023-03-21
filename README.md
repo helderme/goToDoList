@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+<br />
+<details>
+    <summary><strong>🇮🇹 Fare clic qui per leggere il Readme in italiano</strong></summary><br />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GO - TODO LIST
 
-## Available Scripts
+GO Todo List si concentra sull'aggiunta rapida di attività,
+separato per categorie, compiti completati e in sospeso.<br />
+[Fare clic qui per accedere all'applicazione sul WEB](https://helderme.github.io/goToDoList/)
 
-In the project directory, you can run:
+## Tecnologie
 
-### `npm start`
+Questo progetto è stato sviluppato con::
+- Javascript
+- Bootstrap
+- React - Context e Hooks
+- React Testing Library
+- SpeechRecognition
+- ESLint(airbnb)
+- LocalStorage
+- Github Pages
+- Convetional Commits
+- Prettier
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Caratteristiche
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Barra che consente di aggiungere rapidamente un compito
+- Aggiunta di un'attività a voce
+- Pulsante per aggiungere un'attività dettagliata e scegliere la categoria
+- Modificare le attività già aggiunte
+- Spostare le attività tra quelle in sospeso e quelle completate
+- Creare ed eliminare categorie
+- Reattività tra mobile e desktop.
 
-### `npm test`
+## Implementazioni future
+- Selezione della lingua
+- Date e notifiche
+- BackEnd
+- Maggiore copertura dei test
+- Digitazione con il dattiloscritto
+- Più convalide sui campi di digitazione
+- Pulsante di reset per cancellare la memoria locale
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Domande 
+- Perché l'inglese? 
+    - Lingua base per le future implementazioni della scelta linguistica.
+- Che cosa significa il logo?
+    - Parola GO che indica l'azione di portare a termine i compiti.
+    - Simbolo di controllo che indica compiti risolti.
+    - Simbolo con bootstrap svg e go scritto con il font poppins.
 
-### `npm run build`
+## Come installare
+- Clonare il repository ed eseguire - npm install
+- Una volta installato, eseguire - npm start
+- per eseguire i test - npm test
+- Se ci sono problemi, controllare direttamente il link:
+[all'applicazione sul WEB](https://helderme.github.io/goToDoList/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Informazioni sullo sviluppo
+- Progetto iniziato il 16 marzo 2023
+- Sviluppato da Helder Medeiros
+- Versione 1.0 <br />
+[Click here to access the app on the WEB](https://helderme.github.io/goToDoList/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+</details>
+<br />
+<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# GO - TODO LIST
 
-### `npm run eject`
+GO Todo list is focused on adding tasks quickly,
+separate by categories, completed and pending tasks. <br />
+[Click here to access the app on the WEB](https://helderme.github.io/goToDoList/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project was developed with:
+- Javascript
+- Bootstrap
+- React - Context e Hooks
+- React Testing Library
+- SpeechRecognition
+- ESLint(airbnb)
+- LocalStorage
+- Github Pages
+- Convetional Commits
+- Prettier
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Features
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Bar that allows you to add a task quickly
+- Add task by voice
+- Button to add detailed task and choose category
+- Edit already added tasks
+- Move tasks between pending and completed
+- Create and delete categories
+- Responsiveness between mobile and desktop.
 
-## Learn More
+## Future Implementations
+- Language Selection
+- Dates and notifications
+- BackEnd
+- Increased test coverage
+- Typing with typescript
+- More validations on typing fields
+- Reset button deleting Local Storage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Questions 
+- Why English? 
+    - Base language for future language choice implementations.
+- What does the logo mean?
+    - GO word indicating action of accomplishing tasks.
+    - Check symbol indicating solved tasks.
+    - Check symbol bootstrap svg and go written with poppins font
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How to install
+- Clone the repository and run npm install
+- Once installed run npm start
+- to run tests npm test
+- If there are any problems, check the link directly: 
 
-### Code Splitting
+## About the development
+- Project started March 16, 2023
+- Developed by Helder Medeiros
+- Version 1.0 <br />
+[Click here to access the app on the WEB](https://helderme.github.io/goToDoList/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
