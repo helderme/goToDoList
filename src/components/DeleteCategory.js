@@ -23,8 +23,6 @@ function DeleteCategory() {
   return (
     <div
       className='modal'
-      tabIndex='-1'
-      aria-labelledby='deleteCategoryModal'
       aria-hidden='true'
       id='deleteCategoryModal'
     >
@@ -45,7 +43,7 @@ function DeleteCategory() {
           </div>
           <div className='modal-footer'>
             <button type='button' className='btn btn-secondary' data-bs-dismiss='modal'>
-                            Cancel
+              Cancel
             </button>
             <button
               type='button'
@@ -53,7 +51,7 @@ function DeleteCategory() {
               data-bs-dismiss='modal'
               onClick={deleteCategory}
             >
-                            Delete
+              Delete
             </button>
           </div>
         </div>

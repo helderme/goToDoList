@@ -14,7 +14,6 @@ function NewCategoryInput() {
       <input
         type='text'
         className='form-control'
-        aria-describedby='inputGroup-sizing-default'
         value={newCategoryInput}
         onChange={handleCategoryInput}
         maxLength="20"

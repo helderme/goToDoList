@@ -1,34 +1,38 @@
-import React, { useContext } from "react"
-import AppContext from "../context/AppContext";
+import React, { useContext } from 'react';
+import AppContext from '../context/AppContext';
 import NewCategoryInput from './NewCategoryInput';
-import SelectCategory from "./SelectCategory";
+import SelectCategory from './SelectCategory';
 
 function EditTaskModal() {
-  const { taskToEdit, setTaskToEdit, tasksList, setTasksList, previousFilter, setCategoryFilter, currentCategory, showCategoryInput, setShowCategoryInput } = useContext(AppContext)
+  const {
+    taskToEdit,
+    setTaskToEdit,
+    tasksList,
+    setTasksList,
+    previousFilter,
+    setCategoryFilter,
+    currentCategory,
+    showCategoryInput,
+    setShowCategoryInput,
+  } = useContext(AppContext);
 
   const handleDescription = (event) => {
-    const editedDescripiton = { ...taskToEdit }
-    editedDescripiton.description = event.target.value
-    setTaskToEdit(editedDescripiton)
-  }
+    const editedDescripiton = { ...taskToEdit };
+    editedDescripiton.description = event.target.value;
+    setTaskToEdit(editedDescripiton);
+  };
 
   const saveEditedTask = () => {
-    const editedTask = { ...taskToEdit }
+    const editedTask = { ...taskToEdit };
     editedTask.category = currentCategory;
-    const newList = tasksList.map((task) => task.id === editedTask.id ? editedTask : task)
-    setTasksList(newList)
-    setCategoryFilter(previousFilter)
-    setTaskToEdit({})
-  }
+    const newList = tasksList.map((task) => (task.id === editedTask.id ? editedTask : task));
+    setTasksList(newList);
+    setCategoryFilter(previousFilter);
+    setTaskToEdit({});
+  };
 
   return (
-    <div
-      className='modal'
-      tabIndex='-1'
-      aria-labelledby='editTaskModal'
-      aria-hidden='true'
-      id='editTaskModal'
-    >
+    <div className='modal' aria-hidden='true' id='editTaskModal'>
       <div className='modal-dialog'>
         <div className='modal-content'>
           <div className='modal-header'>
@@ -42,13 +46,10 @@ function EditTaskModal() {
           </div>
           <div className='modal-body'>
             <div className='input-group mb-3'>
-              <span className='input-group-text' id='inputGroup-sizing-default'>
-                Task
-              </span>
+              <span className='input-group-text'>Task</span>
               <input
                 type='text'
                 className='form-control'
-                aria-describedby='inputGroup-sizing-default'
                 value={taskToEdit.description}
                 onChange={handleDescription}
               />
@@ -66,7 +67,7 @@ function EditTaskModal() {
           </div>
           <div className='modal-footer'>
             <button type='button' className='btn btn-secondary' data-bs-dismiss='modal'>
-                Close
+              Close
             </button>
             <button
               type='button'

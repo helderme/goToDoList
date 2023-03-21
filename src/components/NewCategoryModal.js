@@ -10,13 +10,12 @@ function NewCategory() {
       className='modal fade'
       id='categoryModal'
       tabIndex='-1'
-      aria-labelledby='exampleModalLabel'
       aria-hidden='true'
     >
       <div className='modal-dialog'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h1 className='modal-title fs-5' id='exampleModalLabel'>
+            <h1 className='modal-title fs-5'>
               Add Category
             </h1>
             <button
@@ -28,15 +27,13 @@ function NewCategory() {
           </div>
           <div className='modal-body'>
             <div className='input-group mb-3'>
-              <span className='input-group-text' id='inputGroup-sizing-default'>
+              <span className='input-group-text'>
                 Category Name
               </span>
               <input
                 type='text'
                 maxLength='20'
                 className='form-control'
-                aria-label='Sizing example input'
-                aria-describedby='inputGroup-sizing-default'
                 value={newCategoryInput}
                 onChange={handleCategoryInput}
               />
