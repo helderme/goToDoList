@@ -1,8 +1,8 @@
 <br />
 <details>
-    <summary><strong>🇮🇹 Fare clic qui per leggere il Readme in italiano</strong></summary><br />
+    <summary><strong>🇮🇹 Fare clic qui per leggere il Readme in italiano 🇮🇹</strong></summary><br />
 
-# GO - TODO LIST
+# GO - TODO LIST (Italiano)
 
 GO Todo List si concentra sull'aggiunta rapida di attività,
 separato per categorie, compiti completati e in sospeso.<br />
@@ -58,15 +58,14 @@ Questo progetto è stato sviluppato con::
 
 ## Informazioni sullo sviluppo
 - Progetto iniziato il 16 marzo 2023
-- Sviluppato da Helder Medeiros
+- Sviluppato da Helder Medeiros - [Likedin](https://www.linkedin.com/in/helderme/)
 - Versione 1.0 <br />
-[Click here to access the app on the WEB](https://helderme.github.io/goToDoList/)
 
 </details>
 <br />
 <br />
 
-# GO - TODO LIST
+# GO - TODO LIST (English)
 
 GO Todo list is focused on adding tasks quickly,
 separate by categories, completed and pending tasks. <br />
@@ -118,12 +117,12 @@ This project was developed with:
 - Once installed run npm start
 - to run tests npm test
 - If there are any problems, check the link directly: 
+[Click here to access the app on the WEB](https://helderme.github.io/goToDoList/)
 
 ## About the development
 - Project started March 16, 2023
-- Developed by Helder Medeiros
+- Developed by Helder Medeiros - [Likedin](https://www.linkedin.com/in/helderme/)
 - Version 1.0 <br />
-[Click here to access the app on the WEB](https://helderme.github.io/goToDoList/)
 
 
 
