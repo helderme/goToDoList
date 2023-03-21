@@ -107,6 +107,7 @@ function TasksCards() {
                     className='btn btn-outline-success'
                     type='button'
                     onClick={() => changeStatusTask(task.id, 'done')}
+                    data-testid="move-to-done-task-btn"
                   >
                     <i className='bi bi-check-circle' />
                   </button>
@@ -116,6 +117,7 @@ function TasksCards() {
                     className='btn btn-outline-primary'
                     type='button'
                     onClick={() => changeStatusTask(task.id, 'pending')}
+                    data-testid="move-to-pending-task-btn"
                   >
                     <i className='bi bi-arrow-counterclockwise' />
                   </button>
@@ -125,6 +127,7 @@ function TasksCards() {
                   className='btn btn-outline-primary'
                   data-bs-toggle='modal'
                   data-bs-target='#editTaskModal'
+                  data-testid="edit-task-btn"
                   onClick={() => handleTaskToEdit(task)}
                 >
                   <i className='bi bi-pencil-fill' />
@@ -132,6 +135,7 @@ function TasksCards() {
                 <button
                   className='btn btn-outline-danger'
                   type='button'
+                  data-testid="remove-task-btn"
                   onClick={() => removeTask(task.id)}
                 >
                   <i className='bi bi-trash3-fill' />

@@ -27,6 +27,7 @@ function Header() {
             className='btn btn-primary mx-2'
             type='button'
             onClick={() => handleStatusFilter('pending')}
+            data-testid='pending-btn-and-number'
           >
             <i className='bi bi-hourglass-split' />
             {numberTasks('pending')}
@@ -35,6 +36,7 @@ function Header() {
             className='btn btn-success'
             type='button'
             onClick={() => handleStatusFilter('done')}
+            data-testid='done-btn-and-number'
           >
             <i className='bi bi-check-all' />
             {numberTasks('done')}
