@@ -95,6 +95,7 @@ function TasksCards() {
                   className={`fs-3 text-break text-${
                     statusFilter === 'done' ? 'success' : 'primary'
                   }`}
+                  data-testid={`task-title-${task.id}`}
                 >
                   {task.description}
                 </p>

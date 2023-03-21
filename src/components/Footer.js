@@ -21,6 +21,7 @@ function Footer() {
               type='text'
               className='form-control'
               placeholder={`Type a ${currentCategory} task`}
+              data-testid="input-fast-task"
               value={taskInput}
               onChange={handleChange}
               onKeyDown={handleChange}
@@ -33,6 +34,7 @@ function Footer() {
           type='button'
           onClick={addTaskToList}
           disabled={taskInput < 1}
+          data-testid="footer-send-task"
           className='btn btn-info ms-2'
         >
           <i className='bi bi-check-square-fill fs-5' />
