@@ -7,7 +7,7 @@ function getLocalStorage() {
   // eslint-disable-next-line no-undef
   const object = localStorage.getItem("toDoList");
   const defaultInfo = {
-    categories: ['Default', 'Home', 'Garden'],
+    categories: ['Default', 'Home', 'Work', 'Garden'],
     lastId: 0,
     tasksList: []
   }
