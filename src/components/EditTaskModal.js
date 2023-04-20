@@ -50,7 +50,7 @@ function EditTaskModal() {
               <input
                 type='text'
                 className='form-control'
-                value={taskToEdit.description}
+                value={taskToEdit.description || ''}
                 onChange={handleDescription}
               />
             </div>
