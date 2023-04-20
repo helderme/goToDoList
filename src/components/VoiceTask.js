@@ -3,13 +3,15 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import AppContext from '../context/AppContext';
 
 function VoiceTask() {
-  const { setVoiceSupport, setTaskInput, tasksList } = useContext(AppContext)
+  const { voiceSupport, setVoiceSupport, setTaskInput, tasksList } = useContext(AppContext)
   const { transcript, listening, browserSupportsSpeechRecognition, resetTranscript } =
     useSpeechRecognition();
 
-  if (browserSupportsSpeechRecognition) {
-    setVoiceSupport(true);
-  }
+  useEffect(() => {
+    if (browserSupportsSpeechRecognition) {
+      setVoiceSupport(true);
+    }
+  }, [voiceSupport]) 
 
   useEffect(() => {
     setTaskInput(transcript)
