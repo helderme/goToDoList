@@ -1,13 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
 
 import App from '../App';
 
 describe('Testing Task Functions', () => {
   test('Insert Default Task', async () => {
-    act(() => {
-      render(<App />);
-    });
+    render(<App />);
 
     const inputTask = screen.getByTestId('input-fast-task');
     const sendTask = screen.getByTestId('footer-send-task') 
@@ -20,9 +17,7 @@ describe('Testing Task Functions', () => {
   });
 
   test('Verify if pending tasks number is correct', async () => {
-    act(() => {
-      render(<App />);
-    });
+    render(<App />);
 
     const pendingTasksBtn = screen.getByTestId('pending-btn-and-number');
     
@@ -30,9 +25,8 @@ describe('Testing Task Functions', () => {
   });
 
   test('Test move task to completed', async () => {
-    act(() => {
-      render(<App />);
-    });
+    render(<App />);
+
     const doneTasksBtn = screen.getByTestId('done-btn-and-number');
     const moveToDoneTaskBtn = screen.getByTestId('move-to-done-task-btn');
     
@@ -44,18 +38,15 @@ describe('Testing Task Functions', () => {
   });
 
   test('Verify if done tasks number is correct', async () => {
-    act(() => {
-      render(<App />);
-    });
+    render(<App />);
 
     const doneTasksBtn = screen.getByTestId('done-btn-and-number');
     expect(doneTasksBtn).toHaveTextContent('1')
   });
 
   test('Test move task to pending', async () => {
-    act(() => {
-      render(<App />);
-    });
+    render(<App />);
+
     const doneTasksBtn = screen.getByTestId('done-btn-and-number');
     const pendingTasksBtn = screen.getByTestId('pending-btn-and-number');
 
@@ -74,9 +65,7 @@ describe('Testing Task Functions', () => {
   
 
   test('Delete Task', async () => {
-    act(() => {
-      render(<App />);
-    });
+    render(<App />);
 
     const doneTasksBtn = screen.getByTestId('done-btn-and-number');
     const pendingTasksBtn = screen.getByTestId('pending-btn-and-number');
